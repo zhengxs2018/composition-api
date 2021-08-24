@@ -1,0 +1,9 @@
+{
+  "out": "dist-tsdoc",
+  "theme": "default",
+  "hideGenerator": true,
+  "includeVersion": true,
+  "exclude": ["*.spec.ts", "*.e2e.ts"],
+  "excludePrivate": true,
+  "excludeExternals": true
+}
