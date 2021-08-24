@@ -16,9 +16,8 @@
 </template>
 
 <script>
-import { withCancelToken } from '@mediinfo/plugin-axios'
-
 import { getUserList } from '../api/users'
+import { withCancelToken } from '../helpers/with-cancel-token'
 
 import { useLoading } from '../use/use-loading'
 import { useList } from '../use/use-list'
