@@ -21,7 +21,9 @@ import CompositionAPI from '@zhengxs/composition-api'
 Vue.use(CompositionAPI)
 ```
 
-### 文档
+[在线DEMO](https://codesandbox.io/s/sleepy-tree-q77ji)
+
+## 文档
 
 响应式状态
 
