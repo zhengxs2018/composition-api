@@ -1,3 +1,8 @@
 {
+  "files.associations": {
+    ".huskyrc": "jsonc",
+    ".lintstagedrc": "jsonc",
+    "api-extractor.json": "jsonc"
+  },
   "cSpell.words": ["Parens", "typedoc", "unref"]
 }
