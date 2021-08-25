@@ -2,11 +2,11 @@
   "name": "@zhengxs/composition-api",
   "version": "0.1.1",
   "scripts": {
-    "bootstrap": "cd examples && yarn install",
     "build": "tsc --build",
     "watch": "tsc --build --watch",
     "lint": "eslint src --ext [ts,js] --ignore-path .gitignore --cache --fix",
-    "format": "prettier \"**/*.{ts,js,json,md}\" --write"
+    "format": "prettier \"**/*.{ts,js,json,md}\" --write",
+    "release": "typedoc src && gh-pages -d ./dist-tsdoc"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -33,6 +33,7 @@
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-tsdoc": "^0.2.14",
+    "gh-pages": "^3.2.3",
     "prettier": "^2.3.2",
     "typedoc": "^0.21.6",
     "typescript": "^4.3.5",

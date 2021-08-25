@@ -3,7 +3,7 @@ import type { NormalizedScopedSlot, VNode } from 'vue/types/vnode'
 import type { Callable } from '../shared/util'
 import type { ComponentInstance } from './runtime'
 
-export type SetupFunction<Props, RawBindings = Record<string, undefined>> = (
+export type SetupFunction<Props, RawBindings = Record<string, unknown>> = (
   this: void,
   props: Props,
   ctx: SetupContext
