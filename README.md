@@ -2,10 +2,18 @@
 
 [![TypeScript](https://img.shields.io/badge/lang-typescript-informational?style=flat-square)](https://www.typescriptlang.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![npm package](https://img.shields.io/npm/v/@zhengxs/composition-api.svg?style=flat-square)](https://www.npmjs.com/package/@zhengxs/composition-api)
+[![npm downloads](https://img.shields.io/npm/dt/@zhengxs/composition-api.svg?style=flat-square)](https://www.npmjs.com/package/@zhengxs/composition-api)
+[![npm downloads](https://img.shields.io/npm/dm/@zhengxs/composition-api.svg?style=flat-square)](https://www.npmjs.com/package/@zhengxs/composition-api)
+[![Dependency Status](https://img.shields.io/david/zhengxs2018/composition-api)](https://david-dm.org/zhengxs2018/composition-api)
+[![DevDependency Status](https://img.shields.io/david/dev/zhengxs2018/composition-api?type=dev)](https://david-dm.org/zhengxs2018/composition-api)
+[![License](https://img.shields.io/npm/l/@zhengxs/composition-api.svg?style=flat-square")](#License)
 
-纯 vue2 的 `composition-api` 实现，和 [@vue/composition-api][composition-api] 区别在于不使用 [Proxy][es6-proxy]，理论上只要 vue2 兼容的浏览器都能运行。
+纯 vue2 代码实现的 `composition-api`，不依赖 ES6 的 `Proxy` 对象， 轻量，无依赖。
 
-[在线演示](https://codesandbox.io/s/sleepy-tree-q77ji)
+不兼容官方的 [@vue/composition-api][composition-api]，理论上只要 vue2 兼容的浏览器都能运行。
+
+[TS 文档](https://zhengxs2018.github.io/composition-api/) ｜ [在线演示](https://codesandbox.io/s/sleepy-tree-q77ji)
 
 ## 快速开始
 

@@ -35,7 +35,6 @@ export function getVueConstructor(): VueConstructor {
   return vueConstructor!
 }
 
-// returns registered vue or `vue` dependency
 export function getRegisteredVueOrDefault(): VueConstructor {
   const constructor = vueConstructor || vueDependency
   return constructor!
@@ -49,12 +48,54 @@ export function setCurrentInstance(instance: ComponentInstance | null) {
   currentInstance = instance
 }
 
+/**
+ * 获取当前组件实例
+ *
+ * 注意：只能在同步的 setup 函数顶部使用
+ * 并且无法在逻辑判断，异步执行中使用
+ *
+ * @public
+ * @returns 组件实例
+ *
+ * @example
+ *
+ * ```js
+ * import { getCurrentInstance } from '@zhengxs/composition-api'
+ *
+ * export default {
+ *   setup() {
+ *    // ✅ 正确用法
+ *    // 如果需要可以在顶部保存
+ *    const vm = getCurrentInstance()
+ *
+ *    console.log(vm)
+ *
+ *    if (flag)
+ *       // ❌ 错误用法
+ *       console.log(getCurrentInstance())
+ *    }
+ *
+ *    onBeforeMount(() => {
+ *       // ❌ 错误用法
+ *       console.log(getCurrentInstance())
+ *    })
+ *   }
+ * }
+ * ```
+ */
 export function getCurrentInstance() {
   ensureCurrentInstance()
   return currentInstance!
 }
 
-export function observe<T>(state: T): T {
+/**
+ * 创建响应式对象
+ * Vue.observable 的别名
+ *
+ * @param raw - 原始值
+ * @returns 响应式对象
+ */
+export function observe<T>(raw: T): T {
   const Vue = getRegisteredVueOrDefault()
-  return Vue.observable(state)
+  return Vue.observable(raw)
 }

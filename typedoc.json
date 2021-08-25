@@ -1,8 +1,11 @@
 {
-  "out": "dist-tsdoc",
+  "readme": "none",
   "theme": "default",
+  "entryPoints": "src/index.ts",
+  "out": "./dist-tsdoc",
   "hideGenerator": true,
   "includeVersion": true,
+  "listInvalidSymbolLinks": true,
   "exclude": ["*.spec.ts", "*.e2e.ts"],
   "excludePrivate": true,
   "excludeExternals": true
