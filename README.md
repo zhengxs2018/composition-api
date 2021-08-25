@@ -65,15 +65,15 @@ export default defineComponent({
     })
 
     onMounted(() => {
-      // 挂载前，对应 mounted
+      // 挂载后，对应 mounted
     })
 
     onBeforeDestroy(() => {
-      // 挂载前，对应 beforeDestroy
+      // 销毁前，对应 beforeDestroy
     })
 
     onDestroyed(() => {
-      // 挂载前，对应 destroyed
+      // 销毁后，对应 destroyed
     })
   },
 })
