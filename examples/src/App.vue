@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import UsersTable from './components/UsersTable.vue'
 import UsersList from './components/UsersList.vue'
 

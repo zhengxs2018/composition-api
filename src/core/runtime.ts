@@ -1,32 +1,30 @@
 import type { VueConstructor } from 'vue'
-import type { ComponentInstance } from './interface'
 
-import { isVue } from './util'
+import { isVue } from '../shared/util'
+
+export type ComponentInstance = InstanceType<VueConstructor>
 
 let vueDependency: VueConstructor | undefined = undefined
 let vueConstructor: VueConstructor | null = null
 let currentInstance: ComponentInstance | null = null
 
-function ensureCurrentInstance() {
-  if (!currentInstance) {
-    throw new Error(`无法获取到当前组件实例，请先使用 Vue.use(CompositionAPI)`)
-  }
-}
-
 try {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const requiredVue = require('vue')
-  if (requiredVue && isVue(requiredVue)) {
-    vueDependency = requiredVue
-  } else if (
-    requiredVue &&
-    'default' in requiredVue &&
-    isVue(requiredVue.default)
-  ) {
-    vueDependency = requiredVue.default
+  if (requiredVue) {
+    if (isVue(requiredVue)) {
+      vueDependency = requiredVue
+    } else if ('default' in requiredVue && isVue(requiredVue.default)) {
+      vueDependency = requiredVue.default
+    }
   }
 } catch {
   // not available
+}
+
+function ensureCurrentInstance(): void | never {
+  if (currentInstance) return
+  throw new Error(`无法获取到当前组件实例，请先使用 Vue.use(CompositionAPI)`)
 }
 
 export function isPluginInstalled() {
@@ -54,4 +52,9 @@ export function setCurrentInstance(instance: ComponentInstance | null) {
 export function getCurrentInstance() {
   ensureCurrentInstance()
   return currentInstance!
+}
+
+export function observe<T>(state: T): T {
+  const Vue = getRegisteredVueOrDefault()
+  return Vue.observable(state)
 }

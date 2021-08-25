@@ -3,7 +3,7 @@ import type {
   ScopedSlotReturnValue,
 } from 'vue/types/vnode'
 
-import type { Slots } from '../interface'
+export type Slots = Record<string, NormalizedScopedSlot>
 
 /**
  * 渲染插槽

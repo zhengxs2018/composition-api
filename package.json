@@ -1,7 +1,8 @@
 {
   "name": "@zhengxs/composition-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
+    "bootstrap": "cd examples && yarn install",
     "build": "tsc --build",
     "watch": "tsc --build --watch",
     "lint": "eslint src --ext [ts,js] --ignore-path .gitignore --cache --fix",

@@ -1,4 +1,11 @@
-import type { DefineComponentOptions } from '../interface'
+import type { ComponentOptions } from 'vue'
+
+import type { SetupFunction } from '../core/setup'
+
+export interface DefineComponentOptions<Props, RawBindings>
+  extends ComponentOptions<Vue, unknown, unknown, unknown, Props> {
+  setup: SetupFunction<Props, RawBindings>
+}
 
 export function defineComponent<Props, RawBindings>(
   options: DefineComponentOptions<Props, RawBindings>

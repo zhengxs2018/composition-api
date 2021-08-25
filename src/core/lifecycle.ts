@@ -1,4 +1,5 @@
-import type { Callable } from './interface'
+import type { Callable } from '../shared/util'
+
 import { getCurrentInstance } from './runtime'
 
 /**
@@ -6,7 +7,7 @@ import { getCurrentInstance } from './runtime'
  *
  * @param callback - 回调函数
  */
-export function onBeforeMount(callback: Callable) {
+export function onBeforeMount(callback: Callable): void {
   const vm = getCurrentInstance()
   vm.$once('hook:created', callback)
 }
@@ -16,7 +17,7 @@ export function onBeforeMount(callback: Callable) {
  *
  * @param callback - 回调函数
  */
-export function onMounted(callback: Callable) {
+export function onMounted(callback: Callable): void {
   const vm = getCurrentInstance()
   vm.$once('hook:mounted', callback)
 }
@@ -26,7 +27,7 @@ export function onMounted(callback: Callable) {
  *
  * @param callback - 回调函数
  */
-export function onBeforeDestroy(callback: Callable) {
+export function onBeforeDestroy(callback: Callable): void {
   const vm = getCurrentInstance()
   vm.$once('hook:beforeDestroy', callback)
 }
@@ -36,7 +37,7 @@ export function onBeforeDestroy(callback: Callable) {
  *
  * @param callback - 回调函数
  */
-export function onDestroyed(callback: Callable) {
+export function onDestroyed(callback: Callable): void {
   const vm = getCurrentInstance()
   vm.$once('hook:destroyed', callback)
 }

@@ -19,21 +19,25 @@
   </div>
 </template>
 
-<script>
-import { ref, unref, watchEffect } from '@zhengxs/composition-api'
+<script lang="ts">
+import {
+  ref,
+  unref,
+  watchEffect,
+  defineComponent,
+} from '@zhengxs/composition-api'
 
 import { getUserList } from '../api/users'
 import { withCancelToken } from '../helpers/with-cancel-token'
-
-import { useLoading } from '../use/use-loading'
+import { useRequestLoading } from '../use/use-request-loading'
 import { useList } from '../use/use-list'
 
 const { send: fetchUserList } = withCancelToken(getUserList)
 
-export default {
+export default defineComponent({
   name: 'UsersList',
   setup() {
-    const { send, loading } = useLoading(fetchUserList)
+    const { send, loading } = useRequestLoading(fetchUserList)
     const {
       list,
       current,
@@ -62,5 +66,5 @@ export default {
       loadNextPage,
     }
   },
-}
+})
 </script>

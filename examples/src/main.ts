@@ -17,6 +17,6 @@ new Vue({
 }).$mount('#app')
 
 if (process.env.NODE_ENV === 'development') {
-  const imp = require.context('./mocks', true, /\.mock.js/)
+  const imp = require.context('./mocks', true, /\.mock.[tj]s/)
   imp.keys().forEach(imp)
 }

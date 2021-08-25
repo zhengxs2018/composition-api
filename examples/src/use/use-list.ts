@@ -5,14 +5,29 @@ import {
   unref,
 } from '@zhengxs/composition-api'
 
-export function useList(fetcher, options = {}) {
-  const list = ref([])
+import type { Fetcher } from '../helpers/with-cancel-token'
+
+export type Options = {
+  authLoad?: boolean
+  pageSize?: number
+}
+
+export type Response<T> = {
+  items: T[]
+  total: number
+}
+
+export function useList<T>(
+  fetcher: Fetcher<Response<T>, Record<'page' | 'pageSize', number>>,
+  options: Options = {}
+) {
+  const list = ref<T[]>([])
   const current = ref(1)
   const pageSize = ref(options['pageSize'] || 10)
   const total = ref(0)
   const finished = ref(false)
 
-  function isEnd(page) {
+  function isEnd(page: number): boolean {
     if (unref(total) === 0) return false
     return page * unref(pageSize) >= unref(total)
   }
@@ -34,7 +49,7 @@ export function useList(fetcher, options = {}) {
   }
 
   // 加载指定页面
-  async function loadPage(page) {
+  async function loadPage(page: number) {
     const result = await fetcher({
       page,
       pageSize: pageSize.value,

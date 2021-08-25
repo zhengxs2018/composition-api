@@ -5,6 +5,8 @@
 
 纯 vue2 的 `composition-api` 实现，和 [@vue/composition-api][composition-api] 区别在于不使用 [Proxy][es6-proxy]，理论上只要 vue2 兼容的浏览器都能运行。
 
+[在线演示](https://codesandbox.io/s/sleepy-tree-q77ji)
+
 ## 快速开始
 
 ### 安装
@@ -21,9 +23,7 @@ import CompositionAPI from '@zhengxs/composition-api'
 Vue.use(CompositionAPI)
 ```
 
-[在线DEMO](https://codesandbox.io/s/sleepy-tree-q77ji)
-
-## 文档
+## 示例
 
 响应式状态
 
@@ -34,7 +34,7 @@ export default defineComponent({
   setup() {
     // 注意和官方的有区别
     const loading = ref(false)
-    
+
     const state = reactive({
       msg: 'Vue',
     })
