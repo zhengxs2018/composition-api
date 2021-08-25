@@ -1,6 +1,6 @@
 {
   "name": "@zhengxs/composition-api",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "scripts": {
     "build": "tsc --build",
     "watch": "tsc --build --watch",
@@ -30,7 +30,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
-    "vue": "^2.6.14"
+    "vue": "^2.5.22"
   },
   "dependencies": {},
   "devDependencies": {
@@ -50,7 +50,7 @@
     "prettier": "^2.3.2",
     "typedoc": "^0.21.6",
     "typescript": "^4.3.5",
-    "vue": "^2.6.14"
+    "vue": "^2.5.22"
   },
   "repository": {
     "type": "git",
